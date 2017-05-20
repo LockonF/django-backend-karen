@@ -70,6 +70,25 @@ MIDDLEWARE_CLASSES = (
 
 CORS_ORIGIN_ALLOW_ALL = True
 
+CORS_ALLOW_METHODS = (
+    'GET',
+    'POST',
+    'PUT',
+    'PATCH',
+    'DELETE',
+    'OPTIONS'
+)
+
+CORS_ALLOW_HEADERS = (
+    'x-requested-with',
+    'content-type',
+    'x-http-method-override',
+    'accept',
+    'origin',
+    'authorization',
+    'x-csrftoken'
+)
+
 ROOT_URLCONF = 'docker_django.urls'
 
 TEMPLATES = [
