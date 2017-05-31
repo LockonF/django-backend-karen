@@ -1,6 +1,6 @@
 from django.conf.urls import url
 
-from auto.views import MarcaAutoViewSet, ModeloAutoViewSet, AutoViewSet
+from auto.views import MarcaAutoViewSet, ModeloAutoViewSet, AutoViewSet, ModelosByMarcaView
 import docker_django.router as baseRouter
 
 
@@ -10,5 +10,5 @@ baseRouter.router.register(r'auto', AutoViewSet, 'auto')
 
 
 urlpatterns = [
-#    url(r'^marca-auto/(?P<pk>[0-9])/modelo-auto$', ModelosByMarcaView.as_view()),
+   url(r'^marca-auto/(?P<pk>[0-9])/modelo-auto$', ModelosByMarcaView.as_view()),
 ]
