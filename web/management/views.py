@@ -1,9 +1,10 @@
+from django.contrib.auth.models import User
 from rest_framework import viewsets, generics
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
 from management.models import Persona
-from management.serializers import PersonaSerializer
+from management.serializers import PersonaSerializer, UserSerializer
 
 
 class PersonaViewSet(viewsets.ModelViewSet):
@@ -22,3 +23,7 @@ class PersonaDataView(generics.RetrieveAPIView):
         instance = self.get_object()
         serializer = self.get_serializer(instance)
         return Response(serializer.data)
+
+class UserRegisterView(generics.CreateAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer

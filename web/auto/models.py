@@ -16,6 +16,7 @@ class MarcaAuto(models.Model):
 class ModeloAuto(models.Model):
     nombre = models.TextField(max_length=200)
     marca = models.ForeignKey(MarcaAuto, related_name="modelos")
+    capacidad_tanque = models.IntegerField(default=0)
 
     class Meta:
         db_table = 'ModeloAuto'
