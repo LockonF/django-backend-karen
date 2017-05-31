@@ -8,4 +8,4 @@ class PersonaSerializer(serializers.ModelSerializer):
     auto = AutoSerializer
     class Meta:
         model = Persona
-        fields = ('user', 'nombre', 'apellido_paterno', 'apellido_materno', 'direccion', 'telefono', 'foto', 'auto')
+        fields = '__all__'
