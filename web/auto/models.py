@@ -6,7 +6,7 @@ from management.models import Persona
 
 class MarcaAuto(models.Model):
     nombre = models.TextField(max_length=200)
-    logo = models.ImageField(upload_to='marcas_auto')
+    logo = models.ImageField(upload_to='marcas_auto', blank=True, null=True)
 
     class Meta:
         db_table = 'MarcaAuto'

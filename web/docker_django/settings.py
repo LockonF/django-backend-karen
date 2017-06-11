@@ -42,6 +42,7 @@ INSTALLED_APPS = (
     'rest_framework',
     'rest_framework_swagger',
     'corsheaders',
+    'storages',
     # My Apps
     'auto',
     'gasolinera',
@@ -60,6 +61,16 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.BasicAuthentication',
     ),
 }
+
+
+# AWS Storage
+os.environ['S3_USE_SIGV4'] = 'True'
+AWS_S3_HOST = 's3.us-east-2.amazonaws.com'
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+AWS_ACCESS_KEY_ID = 'AKIAJNKCSWXNGR7O47AA'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME = 'happy-car-files'
+AWS_S3_SIGNATURE_VERSION= True
 
 # JWT
 
