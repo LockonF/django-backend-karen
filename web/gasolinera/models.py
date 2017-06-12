@@ -5,8 +5,7 @@ from auto.models import Auto
 
 
 class Gasolinera(models.Model):
-    latitud = models.DecimalField(max_digits=8, decimal_places=5)
-    longitud = models.DecimalField(max_digits=8, decimal_places=5)
+    google_id = models.CharField(max_length=200, null=False)
     ratings_persona = models.ManyToManyField(Persona, through='RatingsGasolinera',
                                      through_fields=('gasolinera', 'persona'))
     class Meta:

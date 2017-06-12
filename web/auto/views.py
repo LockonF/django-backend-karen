@@ -1,7 +1,7 @@
 from rest_framework import viewsets, generics
 
 from auto.models import MarcaAuto, ModeloAuto, Auto
-from auto.serializers import MarcaAutoSerializer, ModeloAutoSerializer, AutoSerializer
+from auto.serializers import MarcaAutoSerializer, ModeloAutoSerializer, AutoSerializer, CustomAutoSerializer
 
 
 class MarcaAutoViewSet(viewsets.ModelViewSet):
@@ -22,3 +22,8 @@ class ModelosByMarcaView(generics.ListAPIView):
 class AutoViewSet(viewsets.ModelViewSet):
     serializer_class = AutoSerializer
     queryset = Auto.objects.all()
+
+class MyAutosView(generics.ListAPIView):
+    serializer_class = CustomAutoSerializer
+    def get_queryset(self):
+        return Auto.objects.filter(persona__user=self.request.user)

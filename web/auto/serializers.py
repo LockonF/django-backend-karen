@@ -3,6 +3,7 @@ from rest_framework import serializers
 from auto.models import MarcaAuto, ModeloAuto, Auto
 
 
+
 class AutoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Auto
@@ -18,3 +19,10 @@ class MarcaAutoSerializer(serializers.ModelSerializer):
     class Meta:
         model = MarcaAuto
         fields = ('id', 'nombre', 'logo', 'modelos')
+
+# Serializer with embedded data
+class CustomAutoSerializer(serializers.ModelSerializer):
+    modelo = ModeloAutoSerializer(many=False, read_only=True)
+    class Meta:
+        model = Auto
+        fields = ('id', 'protocolo', 'year', 'motor', 'modelo')

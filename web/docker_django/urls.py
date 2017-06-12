@@ -11,9 +11,10 @@ urlpatterns = [
     url(r'^api-doc$', schema_view),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^',include('auto.urls', namespace='docker_django')),
-    url(r'^',include('management.urls', namespace='docker_django')),
-    url(r'^api-token-auth/', obtain_jwt_token),
-    url(r'^api-token-refresh/', refresh_jwt_token),
+    url(r'',include('gasolinera.urls', namespace='docker_django')),
+    url(r'',include('auto.urls', namespace='docker_django')),
+    url(r'',include('management.urls', namespace='docker_django')),
+    url(r'^api-token-auth', obtain_jwt_token),
+    url(r'^api-token-refresh', refresh_jwt_token),
 
 ]

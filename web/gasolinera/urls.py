@@ -1,10 +1,10 @@
 from django.conf.urls import url
 
-from gasolinera.views import GasolineraViewSet
 import docker_django.router as baseRouter
+from gasolinera.views import GasolineraViewset, CargaViewSet
 
-
-baseRouter.router.register(r'gasolinera', MarcaAutoViewSet, 'gasolinera')
+baseRouter.router.register(r'gasolinera', GasolineraViewset, 'gasolinera')
+baseRouter.router.register(r'carga', CargaViewSet, 'carga')
 
 
 
